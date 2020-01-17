@@ -22,7 +22,7 @@ export default class App extends Component {
         }
 
         if(!this.state.errorMessage && this.state.location) {
-            return <div>Latitude: {this.state.latitude}</div>;
+            return <div><SeasonDisplay latitude = {this.state.location} /></div>;
         }
 
         return <div>Loading!</div>
