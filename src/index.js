@@ -26,7 +26,7 @@ export default class App extends Component {
             return <div><SeasonDisplay latitude = {this.state.location} /></div>;
         }
 
-        return <Spinner />
+        return <Spinner message = 'Please accept location request...'/>
 
         // option 2
         // let message = (this.state.errorMessage && !this.state.location) ? 
