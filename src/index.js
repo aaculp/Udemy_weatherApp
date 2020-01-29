@@ -14,10 +14,9 @@ export default class App extends Component {
             (position) => this.setState({location: position.coords.latitude}),
             (err) => this.setState({errorMessage: err.message})
         );
-    }s
+    }
 
-    render() {
-        // option 1
+    renderContent() {
         if(this.state.errorMessage && !this.state.location) {
             return <div>Error: {this.state.errorMessage}</div>;
         }
@@ -27,6 +26,19 @@ export default class App extends Component {
         }
 
         return <Spinner message = 'Please accept location request...'/>
+    }
+
+    render() {
+        // option 1
+        // if(this.state.errorMessage && !this.state.location) {
+        //     return <div>Error: {this.state.errorMessage}</div>;
+        // }
+
+        // if(!this.state.errorMessage && this.state.location) {
+        //     return <div><SeasonDisplay latitude = {this.state.location} /></div>;
+        // }
+
+        // return <Spinner message = 'Please accept location request...'/>
 
         // option 2
         // let message = (this.state.errorMessage && !this.state.location) ? 
@@ -38,6 +50,12 @@ export default class App extends Component {
         //         {message}
         //     </div>
         // )
+
+        return (
+            <div className='border red'>
+                {this.renderContent()}
+            </div>
+        )
     }
 }
 
